@@ -1,4 +1,4 @@
-### Disclaimere:
+### Disclaimer:
 
 1. I used expo-cli instead of react-native-cli not because I am not familiar with mobile development using react native but becuase I have recently got a new mac and the set up of android and xcode took a while and was unsuccessful at the end. So, expo was easier to get up and running with the task
 
