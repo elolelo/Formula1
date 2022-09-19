@@ -5,8 +5,8 @@
 2. My 2 favorite teams did not return players/drivers details - so instead it kept asking me to subscribe (when I already have subscribed). required me to have subscribed to the formula 1 API - which I already had suscribed but the call did not return the expected instead it returned the shown below:
 
 ### The app
-- There is an .apk file for the android devices 
-- There is also an .ipa file for iOS devices 
+- There are  .apk files for the android devices - sumbitted on Friday and on Monday
+<img width="209" alt="Screenshot 2022-09-19 at 06 46 38" src="https://user-images.githubusercontent.com/32453496/190952792-ac03334c-3020-4533-8ced-47a221de5675.png">
 
 ### How to start
 - Clone the project
@@ -20,3 +20,4 @@
 
 ### Reference
 https://api-sports.io/documentation/formula-1/v1#tag/Rankings/operation/get-rankings-drivers
+
