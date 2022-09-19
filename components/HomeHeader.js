@@ -47,7 +47,7 @@ const HomeHeader = ({ onSearch }) => {
             color: COLORS.white,
           }}
         >
-         Hello there,  Welcome 👋
+         Hello there👋, {'\n'}PLEASE - view each driver first before searching each
         </Text>
 
        

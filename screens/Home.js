@@ -3,16 +3,12 @@ import { View, FlatList } from "react-native";
 import { DriverCard, HomeHeader } from "../components";
 import { COLORS } from "../constants";
 import { fetchDrivers, searchDrivers } from '../services/drivers'
-import { fetchTeams, searchTeams } from '../services/teams'
-import LikeButton from 'expo-like-button';
-
-
 
 let numColumns = 2
 
 const Home = () => {
   const [driversData, setDriversData] = useState([]);
-  const [searchTeams, setSearchTerms] = useState("");
+  const [searchTerms, setSearchTerms] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   let drivers = []
 
@@ -28,13 +24,9 @@ const Home = () => {
         drivers.push(driver)
       })
 
-      console.log(drivers);
-
       await setDriversData(drivers);
       setIsLoading(false);
       
-      console.log(driversData);
-
     }).catch((err) => {
       console.log('ERROR GETTING DRIVERS', err);
       setIsLoading(false);
@@ -51,7 +43,8 @@ const Home = () => {
         console.log("RESULT", response.response);
 
         const filteredData = response.response.filter((item) =>
-          item.name.toLowerCase().includes(searchTerm.toLowerCase())
+        //  item.driver.name.toLowerCase().includes(searchTerm.toLowerCase())
+         item.driver.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
         if (filteredData.length === 0) {
@@ -75,7 +68,7 @@ const Home = () => {
 
   return (
     <View>
-      <View>
+      <View >
         <FlatList
           data={driversData}
           renderItem={({ item }) => <DriverCard data={item} />}

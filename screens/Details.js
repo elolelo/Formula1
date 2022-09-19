@@ -1,4 +1,4 @@
-import React from "react";
+import  React from "react";
 import { View, Text, SafeAreaView, Image, StatusBar, FlatList } from "react-native";
 import { COLORS, SIZES, assets, SHADOWS, FONTS } from "../constants";
 import { SubInfo, DetailsDesc, FocusedStatusBar,CircleButton } from "../components";
@@ -19,12 +19,18 @@ const DetailsHeader = ({ data, navigation }) => (
       left={15}
       top={StatusBar.currentHeight + 10}
     />
-
+    <CircleButton
+      imgUrl={assets.heart}
+      right={15}
+      top={StatusBar.currentHeight + 10}
+    />
+    {/* wanted to use async storage to persisist favorite data but it's deprecated https://reactnative.dev/docs/asyncstorage.html */}
   </View>
 );
 
 const Details = ({ route, navigation }) => {
   const { data } = route.params;
+  console.log(data)
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

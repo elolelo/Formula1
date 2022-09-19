@@ -3,22 +3,21 @@ import { useNavigation } from "@react-navigation/native";
 import { View, Image } from "react-native";
 import { COLORS, SIZES, SHADOWS } from "../constants";
 import { SubInfo, DriverTitle } from "./SubInfo";
-import { RectButton } from "./Button";
+import { RectButton,CircleButton } from "./Button";
+import { Driver } from "../services/drivers";
+
 
 
 const DriverCard = ({ data }) => {
   const navigation = useNavigation();
-
   const [teamName, setTeamName] = useState('');
 
-  // useEffect(() => {
-  //   console.log("TEAM NAME", data.teams.filter((team) => team.season === 2022));
-    
-  //   let filteredTeam  = data.teams.filter((team) => team.season === 2022);
-  //   if(filteredTeam.length > 0){
-  //     setTeamName(filteredTeam[0].team.name);
-  //   }
-  // }, []);
+  const getSingleDriver =async ()=>{
+
+    const singleData = await Driver(data.name)
+    navigation.navigate("Details", { data:singleData })
+  }
+
 
   return (
     <View
@@ -46,7 +45,9 @@ const DriverCard = ({ data }) => {
             borderTopRightRadius: SIZES.font,
           }}
         />
+         {/* <CircleButton imgUrl={assets.heart} right={10} top={10} status={isFavorite} onChange={(ev) => console.log(ev)} /> */}
       </View>
+      
 
       <SubInfo />
 
@@ -76,7 +77,7 @@ const DriverCard = ({ data }) => {
           <RectButton
             minWidth={120}
             fontSize={SIZES.font}
-            handlePress={() => navigation.navigate("Details", { data })}
+            handlePress={getSingleDriver}
           />
         </View>
       </View>

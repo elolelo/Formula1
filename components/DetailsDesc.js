@@ -4,17 +4,6 @@ import { DriverTitle } from "./SubInfo";
 import { COLORS, SIZES, FONTS } from "../constants";
 
 const DetailsDesc = ({ data }) => {
-  const [textName, setTextName] = useState(data.name);
-  const [team, setTeam] = useState(data.team);
-  const [idNumber, setIdNumber] = useState(data.id);
-  const [nationality, setNationality] = useState(data.id);
-  const [birthDate, setBirthDate] = useState(data.birthDate);
-  // const [birthPlace, setBirthPlace] = usesState(data.birthPlace);
-  // const [number, setNumber] = usesState(data.number);
-  // const [careerPoints, setCareerPoints] = usesState(data.careerPoints);
-  
-  
-  
   return (
     <>
       <View
@@ -26,7 +15,7 @@ const DetailsDesc = ({ data }) => {
         }}
       >
         <DriverTitle
-          title={data.name}
+         title={data.name}
           subTitle={data.team}
           titleSize={SIZES.extraLarge}
           subTitleSize={SIZES.font}
@@ -37,29 +26,31 @@ const DetailsDesc = ({ data }) => {
       <View style={{ marginVertical: SIZES.extraLarge * 0.9 }}>
         <Text
           style={{
-            fontSize: SIZES.font,
+            fontSize: SIZES.large,
             fontFamily: FONTS.semiBold,
-            color: COLORS.primary,
+            color: COLORS.red,
           }}
         >
-          Driver's details:
+          🏎️ 🏎️  Driver's details:
         </Text>
         <View
           style={{
             marginTop: SIZES.base,
+            justifyContent: 'space-between'
           }}
         >
           <Text
             style={{
               color: COLORS.secondary,
-              fontSize: SIZES.small,
-              fontFamily: FONTS.regular,
+              fontSize: SIZES.large,
+              fontFamily: FONTS.semiBold,
               lineHeight: SIZES.large,
+             
             }}
           >
           
-           {/* Id Number: {idNumber} {'\n'}Full Name: {textName} {'\n'}Team Name: {team} {'\n'}Nationality: {nationality}  {'\n'}BirthDate: {birthDate}  {'\n'} */}
-           {/* Birth Place: {birthPlace} {'\n'}Number: {number} {'\n'}Career Points: {careerPoints} */}
+          {'\n'}{'\n'}ID Number: {data.id} {'\n'}{'\n'}Full Name: {data.name} {'\n'}{'\n'}Recent Team Name: {data.teams[0].team.name} {'\n'}{'\n'}Nationality: {data.nationality} {'\n'}{'\n'}BirthDate: {data.birthdate}  {'\n'}{'\n'}
+           Birth Place: {data.birthplace} {'\n'}{'\n'}Number: {data.number} {'\n'}{'\n'}Career Points: {data.career_points}
 
           </Text>
         </View>

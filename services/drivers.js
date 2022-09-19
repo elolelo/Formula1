@@ -1,15 +1,21 @@
 import api from './api'
 
-// export const fetchDrivers = async (params) => {
 export const fetchDrivers = async () => {
-  // console.log("params", params)
-  // let reqParams = params ? params : { search: 'nic'};
+
+  const response = await api.get('/rankings/drivers?season=2021')
+// getting all my favorite player - it's all those who played in 2021 season
+  return response.data;
+}
+export const Driver = async (name) => {
+  const response = await api.get(`/drivers?search=${name}`)
+ // name = params ? params : { search: 'nic'};
   // let reqParams = params ? params : {search: 'ale',,season: '2019'}
   // console.log("reqParams",reqParams)
-  // const response = await api.get('/drivers', { params: reqParams })
-  const response = await api.get('/rankings/drivers?season=2021')
-  console.log(response);
-  return response.data;
+
+
+
+  console.log(response.data.response);
+  return response.data.response[0];
 }
 
 export const searchDrivers = async (query) => {
